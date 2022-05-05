@@ -15,7 +15,7 @@ export class Lights {
     scene.add(this.pointLight1)
 
     this.pointLight2 = new THREE.PointLight(0xff0000, 5)
-    this.pointLight2.position.set(0, -1.5, -0.5)
+    this.pointLight2.position.set(0, -3, -0.5)
     scene.add(this.pointLight2)
   }
 }

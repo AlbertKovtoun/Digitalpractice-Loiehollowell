@@ -45,17 +45,23 @@ export class Hemispheres {
       side: THREE.DoubleSide,
     })
 
-    loaders.gltfLoader.load("/assets/models/Hemisphere5.gltf", (gltf) => {
+    loaders.gltfLoader.load("/assets/models/Hemisphere6.gltf", (gltf) => {
       this.hemispheres = gltf.scene
 
       //Find children
-      this.hemisphere = this.hemispheres.getObjectByName("Hemisphere")
+      this.hemisphere1 = this.hemispheres.getObjectByName("Hemisphere1")
+      this.hemisphere2 = this.hemispheres.getObjectByName("Hemisphere2")
       this.ring1 = this.hemispheres.getObjectByName("Ring1")
       this.ring2 = this.hemispheres.getObjectByName("Ring2")
+      this.ring3 = this.hemispheres.getObjectByName("Ring3")
+      this.ring4 = this.hemispheres.getObjectByName("Ring4")
 
-      this.hemisphere.material = this.hemisphereMaterial
+      this.hemisphere1.material = this.hemisphereMaterial
+      this.hemisphere2.material = this.hemisphereMaterial
       this.ring1.material = this.grainMaterial
       this.ring2.material = this.backgroundMaterial
+      this.ring3.material = this.grainMaterial
+      this.ring4.material = this.backgroundMaterial
 
       // console.log(this.hemispheres.children)
       scene.add(this.hemispheres)
