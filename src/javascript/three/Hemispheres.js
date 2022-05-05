@@ -33,7 +33,7 @@ export class Hemispheres {
       side: THREE.DoubleSide,
 
       uniforms: {
-        uRing1Color1: { value: new THREE.Color("#84413b") },
+        uRing1Color1: { value: new THREE.Color(debugObject.outerRingColor) },
         uRing1Color2: { value: new THREE.Color("#592c28") },
         uRingScale: { value: 0.28 },
         uRingWidth: { value: 1.3 },
@@ -43,7 +43,7 @@ export class Hemispheres {
     })
 
     this.grainMaterial = new THREE.MeshStandardMaterial({
-      color: "#d8c6b7",
+      color: debugObject.innerRingColor,
       normalMap: loaders.textureLoader.load("/assets/grainNormal.jpg"),
       side: THREE.DoubleSide,
     })
@@ -88,6 +88,24 @@ export class Hemispheres {
       })
       .on("change", (ev) => {
         this.hemisphereMaterial.uniforms.uBottomColor.value = new THREE.Color(
+          ev.value
+        )
+      })
+
+    sceneFolder
+      .addInput(debugObject, "innerRingColor", {
+        label: "Inner Ring Color",
+      })
+      .on("change", (ev) => {
+        this.grainMaterial.color = new THREE.Color(ev.value)
+      })
+
+    sceneFolder
+      .addInput(debugObject, "outerRingColor", {
+        label: "Outer Ring Color",
+      })
+      .on("change", (ev) => {
+        this.backgroundMaterial.uniforms.uRing1Color1.value = new THREE.Color(
           ev.value
         )
       })

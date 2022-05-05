@@ -17,7 +17,8 @@ export const debugObject = {
   lightColor: "#ff0000",
   hemisphereTopColor: "#c89db1",
   hemisphereBottomColor: "#5f3e69",
-  // innerRingColor: 
+  innerRingColor: "#d8c6b7",
+  outerRingColor: "#84413b",
 }
 
 export const pane = new Pane()
@@ -67,9 +68,9 @@ const tick = () => {
   // Render
   renderer.renderer.render(scene, camera.camera)
 
-  setTimeout(() => {
-    window.requestAnimationFrame(tick)
-  }, 1000 / 60)
+  // setTimeout(() => {
+  window.requestAnimationFrame(tick)
+  // }, 1000 / 60)
 
   stats.end()
 }
