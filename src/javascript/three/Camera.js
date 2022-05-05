@@ -25,5 +25,6 @@ export class Camera {
   setCameraControls() {
     this.controls = new OrbitControls(this.camera, canvas)
     this.controls.enableDamping = true
+    this.controls.enableRotate = false
   }
 }
