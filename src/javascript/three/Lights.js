@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import { debugObject, pane, scene } from "./Experience"
+import { debugObject, lightsFolder, pane, scene } from "./Experience"
 
 export class Lights {
   constructor() {
@@ -21,7 +21,7 @@ export class Lights {
   }
 
   setTweaks() {
-    pane
+    lightsFolder
       .addInput(debugObject, "lightColor", {
         label: "Color of Light",
       })
@@ -29,7 +29,7 @@ export class Lights {
         this.pointLight2.color = new THREE.Color(ev.value)
       })
 
-    pane.addInput(this.pointLight2, "intensity", {
+    lightsFolder.addInput(this.pointLight2, "intensity", {
       label: "Light Intensity",
       min: 0,
       max: 20,

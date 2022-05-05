@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import { loaders, pane, scene } from "./Experience"
+import { debugObject, loaders, pane, scene, sceneFolder } from "./Experience"
 
 import hemisphereVertexShader from "../../shaders/hemisphere/vertex.glsl"
 import hemisphereFragmentShader from "../../shaders/hemisphere/fragment.glsl"
@@ -17,10 +17,13 @@ export class Hemispheres {
     this.hemisphereMaterial = new THREE.ShaderMaterial({
       vertexShader: hemisphereVertexShader,
       fragmentShader: hemisphereFragmentShader,
+      side: THREE.DoubleSide,
 
       uniforms: {
-        uTopColor: { value: new THREE.Color("#c89db1") },
-        uBottomColor: { value: new THREE.Color("#5f3e69") },
+        uTopColor: { value: new THREE.Color(debugObject.hemisphereTopColor) },
+        uBottomColor: {
+          value: new THREE.Color(debugObject.hemisphereBottomColor),
+        },
       },
     })
 
@@ -45,7 +48,7 @@ export class Hemispheres {
       side: THREE.DoubleSide,
     })
 
-    loaders.gltfLoader.load("/assets/models/Hemisphere6.gltf", (gltf) => {
+    loaders.gltfLoader.load("/assets/models/Hemisphere7.gltf", (gltf) => {
       this.hemispheres = gltf.scene
 
       //Find children
@@ -68,5 +71,25 @@ export class Hemispheres {
     })
   }
 
-  setTweaks() {}
+  setTweaks() {
+    sceneFolder
+      .addInput(debugObject, "hemisphereTopColor", {
+        label: "Top Color of Spheres",
+      })
+      .on("change", (ev) => {
+        this.hemisphereMaterial.uniforms.uTopColor.value = new THREE.Color(
+          ev.value
+        )
+      })
+
+    sceneFolder
+      .addInput(debugObject, "hemisphereBottomColor", {
+        label: "Bottom Color of Spheres",
+      })
+      .on("change", (ev) => {
+        this.hemisphereMaterial.uniforms.uBottomColor.value = new THREE.Color(
+          ev.value
+        )
+      })
+  }
 }

@@ -15,9 +15,20 @@ document.body.appendChild(stats.dom)
 
 export const debugObject = {
   lightColor: "#ff0000",
+  hemisphereTopColor: "#c89db1",
+  hemisphereBottomColor: "#5f3e69",
+  // innerRingColor: 
 }
 
 export const pane = new Pane()
+
+export const sceneFolder = pane.addFolder({
+  title: "Scene",
+})
+
+export const lightsFolder = pane.addFolder({
+  title: "Lights",
+})
 
 export const canvas = document.querySelector("canvas.webgl")
 
