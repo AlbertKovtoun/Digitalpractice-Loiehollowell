@@ -9,6 +9,10 @@ import { Ball, Hemispheres } from "./Hemispheres"
 import { Pane } from "tweakpane"
 import { Lights } from "./Lights"
 
+export function getRandom(min, max) {
+  return Math.random() * (max - min) + min
+}
+
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)

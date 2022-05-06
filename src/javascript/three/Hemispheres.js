@@ -3,6 +3,7 @@ import {
   angleFolder,
   colorVariationFolder,
   debugObject,
+  getRandom,
   lights,
   loaders,
   pane,
@@ -221,25 +222,46 @@ export class Hemispheres {
         }
       })
 
-    angleFolder
-      .addInput(debugObject, "angle", {
-        min: -0.2,
-        max: 0,
-        step: 0.01,
-        label: "Angle",
-      })
-      .on("change", (ev) => {
-        this.hemisphere1.rotation.z = ev.value
-        this.hemisphere1Clone.rotation.z = ev.value
+    // angleFolder
+    //   .addInput(debugObject, "angle", {
+    //     min: -0.2,
+    //     max: 0,
+    //     step: 0.01,
+    //     label: "Angle",
+    //   })
+    //   .on("change", (ev) => {
+    //     this.hemisphere1.rotation.z = ev.value
+    //     this.hemisphere1Clone.rotation.z = ev.value
 
-        this.hemisphere2.rotation.z = ev.value
-        this.hemisphere2Clone.rotation.z = ev.value
+    //     this.hemisphere2.rotation.z = ev.value
+    //     this.hemisphere2Clone.rotation.z = ev.value
 
-        this.ringInner.rotation.z = ev.value
-        this.ringInnerClone.rotation.z = ev.value
+    //     this.ringInner.rotation.z = ev.value
+    //     this.ringInnerClone.rotation.z = ev.value
 
-        this.ringOuter.rotation.z = ev.value
-        this.ringOuterClone.rotation.z = ev.value
-      })
+    //     this.ringOuter.rotation.z = ev.value
+    //     this.ringOuterClone.rotation.z = ev.value
+    //   })
+
+    this.setAngleButton = angleFolder.addButton({
+      title: "New Random Angle",
+      label: "Angle", // optional
+    })
+
+    this.setAngleButton.on("click", () => {
+      const angle = getRandom(-0.1, 0)
+
+      this.hemisphere1.rotation.z = angle
+      this.hemisphere1Clone.rotation.z = angle
+
+      this.hemisphere2.rotation.z = angle
+      this.hemisphere2Clone.rotation.z = angle
+
+      this.ringInner.rotation.z = angle
+      this.ringInnerClone.rotation.z = angle
+
+      this.ringOuter.rotation.z = angle
+      this.ringOuterClone.rotation.z = angle
+    })
   }
 }
