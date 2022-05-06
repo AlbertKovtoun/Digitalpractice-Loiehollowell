@@ -32,7 +32,7 @@ void main()
 
     float strength = 100.0;
 
-    float x = (uv.x) * (uv.y) * uTime * 100.0;
+    float x = (uv.x) * (uv.y) * 100.0;
 
     vec4 grain = vec4(mod((mod(x, 13.0) + 1.0) * (mod(x, 123.0) + 1.0), 0.01)-0.005) * strength;
 
