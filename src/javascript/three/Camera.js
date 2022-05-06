@@ -30,5 +30,7 @@ export class Camera {
     this.controls.mouseButtons = {
       LEFT: THREE.MOUSE.PAN,
     }
+
+    this.controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_PAN }
   }
 }
