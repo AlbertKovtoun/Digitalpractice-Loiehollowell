@@ -15,10 +15,15 @@ document.body.appendChild(stats.dom)
 
 export const debugObject = {
   lightColor: "#ff0000",
+  beamColor: "#ff0000",
   hemisphereTopColor: "#c89db1",
   hemisphereBottomColor: "#5f3e69",
   innerRingColor: "#d8c6b7",
   outerRingColor: "#84413b",
+
+  colorVariation: 0,
+
+  angle: 0,
 }
 
 export const pane = new Pane()
@@ -31,6 +36,14 @@ export const lightsFolder = pane.addFolder({
   title: "Lights",
 })
 
+export const colorVariationFolder = pane.addFolder({
+  title: "Color Variations",
+})
+
+export const angleFolder = pane.addFolder({
+  title: "Angle",
+})
+
 export const canvas = document.querySelector("canvas.webgl")
 
 export const scene = new THREE.Scene()
@@ -39,9 +52,9 @@ export const loaders = new Loaders()
 
 export const sizes = new Sizes()
 
-export const lights = new Lights()
-
 export const hemispheres = new Hemispheres()
+
+export const lights = new Lights()
 
 export const camera = new Camera()
 

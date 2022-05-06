@@ -26,5 +26,9 @@ export class Camera {
     this.controls = new OrbitControls(this.camera, canvas)
     this.controls.enableDamping = true
     this.controls.enableRotate = false
+
+    this.controls.mouseButtons = {
+      LEFT: THREE.MOUSE.PAN,
+    }
   }
 }
