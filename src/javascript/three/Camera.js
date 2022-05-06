@@ -13,12 +13,12 @@ export class Camera {
 
   setCamera() {
     this.camera = new THREE.PerspectiveCamera(
-      10,
+      1,
       sizes.width / sizes.height,
       0.1,
       1000
     )
-    this.camera.position.set(0, 0, 40)
+    this.camera.position.set(0, 0, 400)
     scene.add(this.camera)
   }
 
